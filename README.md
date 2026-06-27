@@ -1,99 +1,223 @@
-# 🌌 Intelligent Resume Screener AI
+# 🚀 AI Resume Screening System using NLP & Machine Learning
 
-![Architecture Overview](https://img.shields.io/badge/Architecture-BERT%20%2B%20MLP-blueviolet?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Production--Ready-success?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge)
+![NLP](https://img.shields.io/badge/NLP-BERT%20%7C%20spaCy-success?style=for-the-badge)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-MLP-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
 
-An end-to-end AI pipeline for high-precision resume entity extraction, professional experience evaluation, and automated job category classification. Built for the **Integrated AI/ML Academic Assignment (LPU 2025–26)**.
+## 📌 Project Overview
+
+The **AI Resume Screening System** is an end-to-end application that automates resume analysis using **Natural Language Processing (NLP)** and **Machine Learning**. It extracts candidate information from PDF resumes, identifies technical and soft skills, calculates professional experience, predicts the most suitable job category, and presents the results through an interactive dashboard.
+
+The primary objective of this project is to simplify the recruitment process by reducing manual resume screening and providing recruiters with structured candidate insights.
 
 ---
 
-## 🛠️ System Architecture
+## ✨ Key Features
 
-The system is composed of four integrated layers designed to transform unstructured PDF data into structured professional intelligence.
+- 📄 Resume Parsing from PDF
+- 🤖 BERT-based Named Entity Recognition (NER)
+- 🧠 Job Role Prediction using Machine Learning (MLP)
+- 💼 Automatic Experience Calculation
+- 🛠 Technical & Soft Skill Extraction
+- 🏢 Company & Education Detection
+- 📊 Interactive Candidate Dashboard
+- ⚡ Fast Resume Processing
+- 📈 Resume Analytics and Visualization
 
-### 1. High-Level Pipeline
-```mermaid
-graph TD
-    A[Resume PDF] --> B[PyMuPDF Text Extraction]
-    B --> C{NLP Processing Layer}
-    C --> D[BERT-NER Pipeline]
-    C --> E[spaCy Context Validation]
-    C --> F[Regex Experience Engine]
-    D & E & F --> G[Structured JSON]
-    G --> H[Deep Learning Layer]
-    H --> I[MLP Job Classifier]
-    I --> J[Cyber-Glass Dashboard]
+---
+
+## 🏗️ Project Workflow
+
+```text
+                Resume PDF
+                    │
+                    ▼
+        Text Extraction (PyMuPDF)
+                    │
+                    ▼
+       NLP Processing Layer
+    (BERT + spaCy + Regex)
+                    │
+                    ▼
+     Structured Candidate Data
+                    │
+                    ▼
+      Machine Learning Model
+      (Job Role Prediction)
+                    │
+                    ▼
+      Interactive Dashboard
 ```
 
-### 2. MLP Architecture (Deep Learning Objective)
-The model uses a regularized 3-layer Multi-Layer Perceptron (MLP) for high-accuracy job-fit scoring.
-- **Input Layer**: TF-IDF (10,000 features) + Manual Features (Experience, Skills, Education).
-- **Hidden Layer 1**: 256 Units + ReLU + **Dropout (0.4)**.
-- **Hidden Layer 2**: 128 Units + ReLU.
-- **Output Layer**: 24 Units (Softmax) for category prediction.
+---
+
+## 🛠 Tech Stack
+
+### Programming Language
+
+- Python
+
+### Machine Learning & NLP
+
+- BERT (bert-base-NER)
+- spaCy
+- Scikit-learn
+- PyTorch
+
+### Backend
+
+- FastAPI
+
+### Data Processing
+
+- Pandas
+- NumPy
+- PyMuPDF
+- Regex
+
+### Frontend
+
+- HTML
+- CSS
+- JavaScript
 
 ---
 
-## 📊 Performance Metrics
+## 📊 Model Performance
 
-### 1. Classification Report (MLP)
-Validated across 24 job categories including IT, HR, Finance, and Healthcare.
+| Metric | Value |
+|---------|------:|
+| Classification Accuracy | **70.37%** |
+| Supported Job Categories | **24** |
+| Dataset Size | **2,400+ Resumes** |
 
-| Category | Precision | Recall | F1-Score | Support |
-|----------|-----------|--------|----------|---------|
-| **HR** | 0.89 | 0.94 | **0.91** | 17 |
-| **IT** | 0.72 | 1.00 | 0.84 | 18 |
-| **Accountant** | 0.79 | 0.83 | 0.81 | 18 |
-| **Aviation** | 0.87 | 0.72 | 0.79 | 18 |
-| **Overall Accuracy** | | | **70.37%** | 373 |
-
-### 2. Optimizer Comparison
-Comparison between Adam and RMSProp using L2 Regularization and Early Stopping.
-
-| Optimizer | Early Stop Epoch | Best Val. Accuracy | Convergence |
-|-----------|------------------|--------------------|-------------|
-| **Adam** | **Epoch 21** | **0.7105** | Fast ⚡ |
-| RMSProp | Epoch 26 | 0.7105 | Moderate |
-
-### 3. NER Evaluation (NLP Pipeline)
-Extraction accuracy for Skills, Roles, and Institutions using `bert-base-NER`.
-
-| Metric | Precision | Recall | F1-Score |
-|--------|-----------|--------|----------|
-| **Overall NER** | 0.28 | **0.7037** | 0.40 |
-*Note: Precision is conservative due to the system extracting 40+ valid entities against 15 manual ground truth entries.*
+The Multi-Layer Perceptron (MLP) model predicts the most suitable job category using TF-IDF features combined with engineered resume features.
 
 ---
 
-## ✨ Features & NLP Logic
+## 🤖 NLP Pipeline
 
-- **BERT-NER Integration**: Fine-tuned transformer model for precise professional entity detection.
-- **spaCy Dependency Parsing**: Validates employer context by analyzing head-verb relationships (e.g., verifying "worked at" vs "interested in").
-- **Date Parser Engine**: Advanced regex-based experience calculation with month/year math.
-- **Cyber-Glass UI**: A futuristic dashboard with:
-  - 🌌 Animated background grid
-  - 📊 Radar Chart for skill distribution
-  - 📅 Chronological Career Timeline
-  - ⚡ Real-time parsing animations
+The NLP pipeline automatically extracts:
+
+- Candidate Name
+- Email Address
+- Phone Number
+- Technical Skills
+- Soft Skills
+- Companies Worked At
+- Educational Institutions
+- Professional Experience
+
+The system combines **BERT**, **spaCy**, and **rule-based NLP techniques** to generate structured candidate information.
 
 ---
 
-## 🚀 Installation & Usage
+## 📂 Project Structure
 
-### Setup
+```text
+AI-Resume-Screening-System/
+│
+├── app.py
+├── train_dl.py
+├── requirements.txt
+├── resume_mlp_model.pth
+├── models/
+├── datasets/
+├── static/
+├── templates/
+├── README.md
+└── ...
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
 ```bash
-pip install torch transformers spacy pymupdf fastapi uvicorn scikit-learn joblib pandas numpy
+git clone https://github.com/yourusername/ai-resume-screening-system.git
+```
+
+### Navigate to Project
+
+```bash
+cd ai-resume-screening-system
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Download spaCy Model
+
+```bash
 python -m spacy download en_core_web_sm
 ```
 
-### Execution
-1. **Train Model**: `python train_dl.py` (Generates `resume_mlp_model.pth`)
-2. **Start API**: `python app.py`
-3. **Open UI**: Open `index.html` in your browser.
+### Run the Application
+
+```bash
+python app.py
+```
 
 ---
 
-## 📄 References
-- Devlin, J. (2019). *BERT: Pre-training of Deep Bidirectional Transformers.*
-- HuggingFace: `dslim/bert-base-NER`.
-- Kaggle Resume Dataset (2,400+ samples).
+## 🚀 How It Works
+
+1. Upload a PDF resume.
+2. The system extracts text using **PyMuPDF**.
+3. BERT and spaCy identify important entities such as skills, companies, education, and experience.
+4. Resume features are processed and passed to the Machine Learning model.
+5. The model predicts the most suitable job category.
+6. Results are displayed through an interactive dashboard.
+
+---
+
+## 🎯 Future Improvements
+
+- ATS Compatibility Score
+- Resume Ranking System
+- Multi-Resume Comparison
+- AI-generated Candidate Summary
+- Cloud Deployment
+- Recruiter Dashboard
+- Authentication & User Management
+- LLM-based Resume Feedback
+
+---
+
+## 📚 Dataset
+
+- Kaggle Resume Dataset (2,400+ resumes)
+
+---
+
+## 📖 References
+
+- Devlin et al. - BERT: Pre-training of Deep Bidirectional Transformers
+- Hugging Face Transformers
+- spaCy NLP Documentation
+- Scikit-learn Documentation
+- Kaggle Resume Dataset
+
+---
+
+## 👨‍💻 Author
+
+**Vansh Arora**
+
+B.Tech Computer Science Engineering (AI & Data Engineering)
+
+### Skills
+
+- Python
+- Machine Learning
+- Natural Language Processing
+- FastAPI
+- SQL
+- React
+- Data Structures & Algorithms
